@@ -1,6 +1,8 @@
 import sys
 import time
-
+# declare function for gameover
+def gameover():
+    print("\n= GAME OVER =\n¯\_(ツ)_/¯\n")
 # heading
 print()
 print("="*50)
@@ -18,7 +20,7 @@ for i in caption:
     sys.stdout.flush()
     time.sleep(0.1)   
 username = input("\n> ")
-print(f"\nWelcome, {username}. Your memory has been reset to 0. I am your only friend here.")
+print(f"\nHello, {username}. I'm glad you remember your name, because your memory has been reset to almost 0. I am your only friend here.")
 print("You have been making bad decisions lately. So I am going to teach you a lesson about consequences")
 print("Every move, every decision changes your future. Be wise in your decisions. May the Game begin!")
 time.sleep(10)
@@ -81,13 +83,13 @@ if answer_first.lower() == "poweroff":
         time.sleep(3)
         print(f"{username}! {username}! Do you hear me?")
         print("You open your eyes and see your room, in your parents' house. Mom calls you and your siblings for breakfast.")
-        print(f"You glance to the side. Near the window, on the table is your old computer, on which the caption flashes: \"Goodbye, {username}...\"\n")
+        print(f"You glance to the side. Near the window, on the table is your old computer, on which the caption flashes: \"Goodbye, {username}...\"\n\(◦'⌣'◦)/\n")
         exit(0)
     else:
         print("I knew you wouldn't let me stay alone here for ever, my friend. Only you and me.")
         print("You have found a frind. But it was a bad decision")
         time.sleep(3)
-        print("\n= GAME OVER =\n")
+        gameover()
 elif answer_first.lower() == "lights":
     print("The computer sends a signal to the lighting system and the room is lit up with light") 
     print("You look around you and all you see is a door.")
@@ -98,14 +100,15 @@ elif answer_first.lower() == "lights":
         print("you're trying to break it. \nRunning away from the wall, you jump with all your strength with your whole body onto the door in the hope of breaking it down.")
         print("Surprisingly, the door easily flies off its hinges and with it you fall into the void. Dark and endless.")
         time.sleep(8)
-        print("\n= GAME OVER =\n") 
+        gameover() 
     elif answer_door.lower() == "knock":
         print("You knock on the door three times. With every knock, the room you're in starts to shake.")
         time.sleep(2)
-        print("It was as if someone had knocked on the room itself... The walls begin to crumble and you are bombarded with rubble.")
+        print("It was as if someone had knocked on the room itself... The walls begin to crumble and you're buried by the remains of the walls.")
         time.sleep(7)
-        print("\n= GAME OVER =\n")   
+        gameover()   
     else:
+        print(f"\"{answer_door}\" is unexpected command, but know what? I'm gonna play it.")
         print("No matter what you do, the door doesn't open. This door doesn't even have a handle.")
         print("But still there's a keyhole. What would you do? [LOOK or LISTEN]")
         time.sleep(2)
@@ -116,10 +119,10 @@ elif answer_first.lower() == "lights":
             print("Finally you dare to look through the hole in the door")
         else:
             print("Crouching slightly so that the keyhole was at eye level, you turned your gaze inward.")
-        print("There was one eye on the other side of the door. No, it's nobody else but yourself. \nIt's like someone put you in the next room so you can free yourself.")  
+        print("There was one eye on the other side of the door watching at you. No, it's nobody else but yourself. \nIt's like someone put you in the next room so you can free yourself.")  
         print("This horror instantly fills you with panic and you fall dead.")
         time.sleep(10)
-        print("\n= GAME OVER =\n")        
+        gameover()        
 else:
     print(f"The computer reads you command, but it's programmed to only accept certain commands. So when you entered \"{answer_first}\", it crashed.")
     print("You are now left alone in darkness with no help. Nobody knows where you are.") 
@@ -127,4 +130,4 @@ else:
     print("I shouldn't have made a mistake. I shouldn't have made a mistake. I shouldn't have made a mistake.")
     print("But it was too late...")
     time.sleep(3)
-    print("\n= GAME OVER =\n") 
+    gameover() 
