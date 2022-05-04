@@ -1,36 +1,51 @@
 import random
-# secret = random.choice(["python", "pneumonoultramicroscopicsilicovolcanoconiosis", "google", "education", "ham", "spam", "eggs"])
-# раскоментить рандом когда будет готов loop, чтобы отгадать одно слово и открыть другое в новой игре
-secret = "spam"
-# attempt = 0
+# using list of words to make the secret word different each time the game starts
+secret = random.choice(["python", "pneumonoultramicroscopicsilicovolcanoconiosis", "google", "education", "ham", "spam", "eggs", "secret", "password"])
+# dropping attempts count to zero
+attempt = 0
+# assigning guess variable to use in the while loop
+guess = ""
+# welcome message
+print("="*35)
 print("Welcome to the word guessing game!")
-guess = input("What is your guess? ").lower()
-output = ""
-for i in range(len(secret)):
-    secret_letter = secret[i]
-    if secret_letter in guess:
-        # место буквы в секрете
-        secret_place = i
-        for j in range(len(guess)):
-            # место буквы в попытке
-            guess_place = guess.index(secret_letter)
-        if secret_place == guess_place:
-            secret_letter = secret_letter.upper()
+print("="*35)
+# keep loping until user guesses secret word
+while guess != secret:
+    guess = input("What is your guess? ").lower()
+    output = ""
+    # looping through the letters in the secret word
+    for i in range(len(secret)):
+        secret_letter = secret[i]
+        # if a letter from secret matches a letter in guess word
+        if secret_letter in guess:
+            # storing index of that letter
+            secret_place = i
+            # looping through letters in the guess word
+            for j in range(len(guess)):
+                # finding and stroing index of the letter in the guess word  
+                guess_place = guess.index(secret_letter)
+            # if indexes match > letter is upercase
+            if secret_place == guess_place:
+                secret_letter = secret_letter.upper()
+            # if indexes don't match, but the letter is present in both words > lowecase
+            else:
+                secret_letter = secret_letter.lower()
+        # if the letter is not found > substituted with an underscore_
         else:
-            secret_letter = secret_letter.lower()
-    else:
-        secret_letter = "_"
-    output += secret_letter
-output = random.sample(output, k=len(output))
-output = ''.join(output)
-print(output)
-
-# while guess != secret:
-#     print("Your guess was not correct.")
-#     guess = input("What is your guess? ")
-#     attempt += 1 
-# else:    
-#     print(f"""Congratulations! You guessed it!
-# It took you {attempt + 1} guesses.""")
-
-# Your hint is: _ _ _ _ _ _ 
+            secret_letter = "_"
+        # appending upper-, low-case letters, or underscore to the ouput
+        output += secret_letter
+    # shuffling to make the game harder
+    output = random.sample(output, k=len(output))
+    # adding space between the characters in the output for better readability
+    output = ' '.join(output)
+    # counting the number of attempts made
+    attempt += 1
+    # if user didn't guess the whole word > let him know that and display hint
+    if guess != secret:
+        print("Your guess was not correct.")
+        print("Your hint is: " + output + "\n")
+# user guesses the secret word > let him know that and display the number of attempts made
+else:
+    print("\nCongratulations! You guessed it!")
+    print(f"It took you {attempt} guesses.")
