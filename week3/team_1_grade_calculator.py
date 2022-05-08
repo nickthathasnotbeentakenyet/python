@@ -1,4 +1,4 @@
-grade_percentage = int(input("What is the grade percentage?: "))  
+grade_percentage = float(input("What is the grade percentage?: "))
 # passed 
 if grade_percentage >= 70:
     if grade_percentage >= 90:
@@ -29,4 +29,4 @@ if grade_percentage >= 93 or grade_percentage < 60:
     sign = ""  
 # ---------------------------------------------------------------
 # printing grade and sign 
-print(f"Your grade is \"{letter}{sign}\"")   
+print(f"Your grade is \"{letter}{sign}\"") 

@@ -12,7 +12,7 @@ print("="*35)
 # keep loping until user guesses secret word
 while guess != secret:
     guess = input("What is your guess? ").lower()
-    output = ""
+    hint = ""
     # looping through the letters in the secret word
     for i in range(len(secret)):
         secret_letter = secret[i]
@@ -34,17 +34,17 @@ while guess != secret:
         else:
             secret_letter = "_"
         # appending upper-, low-case letters, or underscore to the ouput
-        output += secret_letter
+        hint += secret_letter
     # shuffling to make the game harder
-    output = random.sample(output, k=len(output))
-    # adding space between the characters in the output for better readability
-    output = ' '.join(output)
+    hint = random.sample(hint, k=len(hint))
+    # adding space between the characters in the hint for better readability
+    hint = ' '.join(hint)
     # counting the number of attempts made
     attempt += 1
     # if user didn't guess the whole word > let him know that and display hint
     if guess != secret:
         print("Your guess was not correct.")
-        print("Your hint is: " + output + "\n")
+        print("Your hint is: " + hint + "\n")
 # user guesses the secret word > let him know that and display the number of attempts made
 else:
     print("\nCongratulations! You guessed it!")
