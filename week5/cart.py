@@ -1,11 +1,11 @@
 import colorama
-from colorama import Fore, Style
+from colorama import Fore
 colorama.init()
 
 # vars
 items = []
+prices = []
 item = ""
-num = 1
 menu_entry = 0
 
 # clear screen
@@ -25,31 +25,50 @@ Please select one of the following:
 3. Remove item
 4. Compute total
 5. Quit
-{Style.RESET_ALL}  
+{Fore.RESET}  
 Please enter an action:  """)
 
-    # OUT OF RANGE
+    # OUT OF BOUNDS
     if menu_entry not in ("1","2","3","4","5"):
-        print(f"{Fore.RED}WARNING: \"{menu_entry}\" is invalid{Style.RESET_ALL}")
+        print(f"{Fore.RED}WARNING: \"{menu_entry}\" is invalid{Fore.RESET}")
 
     # ADD ITEM
     if menu_entry == "1":
         item = input("What item would you like to add?: ")
+        price = float(input(f"What is the price of '{item}'?: "))
         items.append(item)
-        print(f"'{Fore.GREEN}{item}' has been added to the cart.{Style.RESET_ALL}")
+        prices.append(price)
+        print(f"'{Fore.GREEN}{item}' has been added to the cart.{Fore.RESET}")
 
     # VIEW ITEMS
     elif menu_entry == "2":
-        print(f"{Fore.YELLOW}The contents of the shopping cart are: ")
-        for item in items:
-            print(f"{num}. {item}")
-            num += 1
-        print(Style.RESET_ALL)   
+        num = 1
+        if len(items) == 0:
+            print(f"{Fore.YELLOW}The shopping cart is empty.{Fore.RESET}")
+        # if the cart contains at least 1 item
+        else:
+            print(f"{Fore.YELLOW}The contents of the shopping cart are: ")
+            for item in items:
+                # cart items printed with their prices [indexes are taken from the items]
+                print(f"{num}. {item} - ${prices[items.index(item)]:.2f}")
+                num += 1              
+            print(Fore.RESET)   
 
     # REMOVE ITEM
+    elif menu_entry == "3":
+        item_remove = int(input("Which item would you like to remove?: "))
+        # out of bounds message
+        if item_remove <= 0 or item_remove > len(items):
+            print(f"{Fore.RED}Sorry, that is not a valid item number.{Fore.RESET}")
+        else:
+            del items[item_remove-1]
+            del prices[item_remove-1]
+            print(f"{Fore.MAGENTA}Item removed.{Fore.RESET}")
 
     # COMPUTE TOTAL
-
+    elif menu_entry == "4":
+        total = sum(prices)
+        print(f"{Fore.YELLOW}The total price of the items in the shopping cart is ${total:.2f}{Fore.RESET}")
 # QUIT
 else:
-    print("Thank you. Goodbye.\n")
+    print(f"{Fore.CYAN}Thank you. Goodbye.\n{Fore.RESET}")

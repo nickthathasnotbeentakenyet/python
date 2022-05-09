@@ -1,6 +1,3 @@
-from audioop import avg
-
-
 numbers = []
 number = -1
 
