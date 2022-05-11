@@ -18,15 +18,8 @@ print("Welcome to the Shopping Cart Program!")
 while menu_entry != "5":
 
     # menu
-    menu_entry = input(f"""{Fore.CYAN}
-Please select one of the following: 
-1. Add item
-2. View cart
-3. Remove item
-4. Compute total
-5. Quit
-{Fore.RESET}  
-Please enter an action:  """)
+    print(f"{Fore.CYAN}\nPlease select one of the following: \n1. Add item\n2. View cart\n3. Remove item\n4. Compute total\n5. Quit{Fore.RESET}\n")
+    menu_entry = input("Please enter an action:  ")
 
     # OUT OF BOUNDS
     if menu_entry not in ("1","2","3","4","5"):
@@ -50,7 +43,7 @@ Please enter an action:  """)
             print(f"{Fore.YELLOW}The contents of the shopping cart are: ")
             for item in items:
                 # cart items printed with their prices [indexes are taken from the items]
-                print(f"{num}. {item} - ${prices[items.index(item)]:.2f}")
+                print(f"{num}. {item:<25} ${prices[items.index(item)]:.2f}")
                 num += 1              
             print(Fore.RESET)   
 
@@ -69,6 +62,7 @@ Please enter an action:  """)
     elif menu_entry == "4":
         total = sum(prices)
         print(f"{Fore.YELLOW}The total price of the items in the shopping cart is ${total:.2f}{Fore.RESET}")
+
 # QUIT
 else:
     print(f"{Fore.CYAN}Thank you. Goodbye.\n{Fore.RESET}")
