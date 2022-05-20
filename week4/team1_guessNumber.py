@@ -50,7 +50,7 @@
 
 # # checking if user wants to play
 # play = "yes"
-# while play == "yes":
+# while play.lower() == "yes":
 
 #     magic_number = random.randint(1, 100)
 #     attempt = 0

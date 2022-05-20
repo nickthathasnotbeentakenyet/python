@@ -9,7 +9,7 @@ guess = ""
 print("="*35)
 print("Welcome to the word guessing game!")
 print("="*35)
-# initial hint that I did not include...
+# initial hint that shows number of letters
 initial_hint = ""
 for num in secret:
     initial_hint += "_ "
@@ -40,7 +40,7 @@ while guess != secret:
             secret_letter = "_"
         # appending upper-, low-case letters, or underscore to the ouput
         hint += secret_letter
-    # shuffling to make the game harder
+    # shuffling to make the game harder to play
     # hint = random.sample(hint, k=len(hint))
     # adding space between the characters in the hint for better readability
     hint = ' '.join(hint)

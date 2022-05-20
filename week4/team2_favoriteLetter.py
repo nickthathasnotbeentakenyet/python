@@ -2,7 +2,7 @@
 # word = "Commitment"
 # for i in word:
 #     if i == "m":
-#         print(i.capitalize())
+#         print(i.upper())
 #     else:
 #         print(i.lower())
 
@@ -11,7 +11,7 @@
 # letter = input("Enter a latter: ").lower()
 # for i in word:
 #     if i.lower() == letter:
-#         print(i.capitalize(), end="")
+#         print(i.upper(), end="")
 #     else:
 #         print(i.lower(), end="")
 
@@ -50,6 +50,7 @@
 #     print(end=" ") # notice indentation level
 
 # 02
+
 # quote = "In coming days, it will not be possible to survive spiritually without the guiding, directing, comforting, and constant influence of the Holy Ghost."
 # number = int(input("Please enter a number: "))
 # for inx in range(len(quote)):
@@ -60,17 +61,17 @@
 #         print(letter, end="")
 
 # 03
-# quote = "In coming days, it will not be possible to survive spiritually without the guiding, directing, comforting, and constant influence of the Holy Ghost."
-# keep_playing = True
-# while keep_playing:
-#     number = int(input("Please enter a number: "))
-#     for inx in range(len(quote)):
-#         letter = quote[inx]
-#         if inx % number == 0:
-#             print(letter.upper(), end="")
-#         else:
-#             print(letter, end="")
-#     answer = input("\nWould you like to enter another number? [yes/no]: ")
-#     if answer.lower() == "no":
-#         keep_playing = False
-# print("Goodbye")
+quote = "In coming days, it will not be possible to survive spiritually without the guiding, directing, comforting, and constant influence of the Holy Ghost."
+keep_playing = True
+while keep_playing:
+    number = int(input("Please enter a number: "))
+    for inx in range(len(quote)):
+        letter = quote[inx]        
+        if inx % number == 0:
+            print(letter.upper(), end="")
+        else:
+            print(letter, end="")
+    answer = input("\nWould you like to enter another number? [yes/no]: ")
+    if answer.lower() == "no":
+        keep_playing = False
+print("Goodbye")
