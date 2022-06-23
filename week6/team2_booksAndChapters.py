@@ -1,7 +1,7 @@
 '''
 # TODO: CORE REQUIREMENTS
 Open the file, read through it line by line, separate the line into the appropriate pieces and display each book in this format:
-Scripture: Old Testament, Book: Genesis, Chapters: 50
+Scripture: Old Testament, Book: Genesis, Chapters: 50 
 Find the largest number of chapters in the scriptures.
 Find the book that has the largest number of chapters in the scriptures.
 # TODO: STRETCH CHALLENGE
@@ -31,7 +31,7 @@ with open('./week6/books_and_chapters.txt') as file:
             if int(line[1]) > largest_BOM:
                 largest_BOM = int(line[1])
                 book_BOM = line[0]
-        if line[2] == user_book:
+        if line[2].lower() == user_book.lower():
             if int(line[1]) > largest_user:
                 largest_user = int(line[1])
                 book_user = line[0]

@@ -12,6 +12,9 @@ user_count = 0
 expectancy_list = []
 
 with open(path) as file:
+    # skiiping the first line in the file . Though, I am using another method below
+    # file = file.readlines()
+    # for line in file[1:]:
     for line in file: 
         line = line.strip()
         line = line.split(",")
