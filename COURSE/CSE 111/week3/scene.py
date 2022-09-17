@@ -1,7 +1,5 @@
-# Import the functions from the Draw 2-D library
-# so that they can be used in this program.
 from draw2d import \
-    start_drawing, draw_line, draw_oval, draw_arc, \
+    start_drawing, draw_line, draw_oval, \
     draw_rectangle, draw_polygon, draw_text, finish_drawing
 
 
@@ -14,10 +12,7 @@ def main():
     # library which will open a window and create a canvas.
     canvas = start_drawing("Scene", scene_width, scene_height)
 
-    # Call your drawing functions such
-    # as draw_sky and draw_ground here.
-
-# COMMENT: CALLS START HERE 
+# COMMENT: FUNCTIONS' CALLS START HERE 
     # draw_grid(canvas, scene_width, scene_height, 50)
     draw_sky(canvas, scene_width, scene_height)
     draw_ground(canvas, scene_width, scene_height)
@@ -55,29 +50,27 @@ def main():
     draw_butterfly(canvas, 660, 20, 8, "greenYellow")
     draw_butterfly(canvas, 710, 30, 12, "mediumPurple1")
     
-# COMMENT: CALLS END HERE
+# COMMENT: CALLS TO MY FUNCTIONS END HERE
 
     # Call the finish_drawing function
     # in the draw2d.py library.
     finish_drawing(canvas)
 
 
-# Define your functions such as
-# draw_sky and draw_ground here.
-
 # COMMENT: FUNCTIONS' DECLARATION START HERE
+
 def draw_sky(canvas, scene_width, scene_height):
-    """Draw the sky and all the objects in the sky."""
+    """Draw the sky"""
     draw_rectangle(canvas, 0, scene_height / 3,
         scene_width, scene_height, width=0, fill="sky blue")
 
-
 def draw_ground(canvas, scene_width, scene_height):
-    """Draw the ground and all the objects on the ground."""
+    """Draw the ground"""
     draw_rectangle(canvas, 0, 0,
         scene_width, scene_height / 3, width=0, fill="forestGreen")
 
 def draw_cloud(canvas, x, y, diameter):
+    """Draw white cloud at a given position and size"""
     draw_oval(canvas, x, y, x + diameter, y + diameter, fill="white", outline="white")
     draw_oval(canvas, x+30, y-10, x+30 + diameter*.7, y-10 + diameter*.7, fill="white", outline="white")
     draw_oval(canvas, x+40, y+10, x+30 + diameter, y-10 + diameter, fill="white", outline="white")
@@ -85,17 +78,18 @@ def draw_cloud(canvas, x, y, diameter):
     draw_oval(canvas, x-30, y, x-30 + diameter*.8, y + diameter*.8, fill="white", outline="white")
 
 def draw_grass(canvas, x, y, size):
-    """Draw grass bushes. Size will be different at random places on the ground"""
+    """Draw grass bushes. Sizes and placements on the ground vary"""
     draw_polygon(canvas, x, y, x-size*.8, y+size*3, x+size*2, y, outline="paleTurquoise4", fill="green")
     draw_polygon(canvas, x, y, x+size, y+size*5, x+size*2, y, outline="paleTurquoise4", fill="green")
     draw_polygon(canvas, x+size, y, x+size*3, y+size*4, x+size*2, y, outline="paleTurquoise4", fill="green")
 
 def draw_rocks(canvas, x, y, size):
-    """Draw rocks on the ground"""
+    """Draw rock on the ground"""
     draw_oval(canvas, x+size*.5, y, x+size*2, y+size*1.5, outline="#333", fill="#333")
     draw_oval(canvas, x, y, x+size, y+size, outline="paleTurquoise4", fill="#333")
 
 def draw_butterfly(canvas, x, y, size, color):
+    """Draw butterfly of a different color, size and position on the matrix"""
     draw_oval(canvas, x, y, x+size, y+size, outline="#333", fill=color)
     draw_oval(canvas, x+size, y, x+size*2, y+size, outline="#333", fill=color)
     draw_oval(canvas, x+size*.5, y, x+size, y-size*.5, outline="#333", fill=color)
@@ -156,7 +150,7 @@ def draw_tractor(canvas, x, y):
     draw_oval(canvas, x+150, y+160, x+190, y+200, fill="gray30", outline="gray30") # puff3+
     draw_text(canvas, x+50, y+30, "General Motors", fill="gold") # text on the engine section
 
-# NOTE: the grid will be removed before final submission
+# NOTE: the grid function is left for future needs. Call to this function is disabled.
 def draw_grid(canvas, width, height, interval, color="#333"):
     # Draw a vertical line at every x interval.
     label_y = 15
