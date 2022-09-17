@@ -39,31 +39,31 @@ WIZARD_OFFSET = [112, 107]
 WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 
 #load music and sounds
-pygame.mixer.music.load("unlisted/GAMES/fighter/assets/audio/music.mp3")
+pygame.mixer.music.load("GAMES/fighter/assets/audio/music.mp3")
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1, 0.0, 5000)
-sword_fx = pygame.mixer.Sound("unlisted/GAMES/fighter/assets/audio/sword.wav")
+sword_fx = pygame.mixer.Sound("GAMES/fighter/assets/audio/sword.wav")
 sword_fx.set_volume(0.5)
-magic_fx = pygame.mixer.Sound("unlisted/GAMES/fighter/assets/audio/magic.wav")
+magic_fx = pygame.mixer.Sound("GAMES/fighter/assets/audio/magic.wav")
 magic_fx.set_volume(0.75)
 
 #load background image
-bg_image = pygame.image.load("unlisted/GAMES/fighter/assets/images/background/bg-cold.jpg").convert_alpha()
+bg_image = pygame.image.load("GAMES/fighter/assets/images/background/bg-cold.jpg").convert_alpha()
 
 #load spritesheets
-warrior_sheet = pygame.image.load("unlisted/GAMES/fighter/assets/images/warrior/Sprites/warrior.png").convert_alpha()
-wizard_sheet = pygame.image.load("unlisted/GAMES/fighter/assets/images/wizard/Sprites/wizard.png").convert_alpha()
+warrior_sheet = pygame.image.load("GAMES/fighter/assets/images/warrior/Sprites/warrior.png").convert_alpha()
+wizard_sheet = pygame.image.load("GAMES/fighter/assets/images/wizard/Sprites/wizard.png").convert_alpha()
 
 #load vicory image
-victory_img = pygame.image.load("unlisted/GAMES/fighter/assets/images/icons/victory.png").convert_alpha()
+victory_img = pygame.image.load("GAMES/fighter/assets/images/icons/victory.png").convert_alpha()
 
 #define number of steps in each animation
 WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
 WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
 #define font
-count_font = pygame.font.Font("unlisted/GAMES/fighter/assets/fonts/turok.ttf", 80)
-score_font = pygame.font.Font("unlisted/GAMES/fighter/assets/fonts/turok.ttf", 30)
+count_font = pygame.font.Font("GAMES/fighter/assets/fonts/turok.ttf", 80)
+score_font = pygame.font.Font("GAMES/fighter/assets/fonts/turok.ttf", 30)
 
 #function for drawing text
 def draw_text(text, font, text_col, x, y):

@@ -48,7 +48,6 @@ name_list = []
 for root, dirs, files in os.walk(path): 
     for file in files: 
         # интересуют только txt файлы. 
-        # Если нужны все, то удалить или закоментировать следующую строку
         if(file.endswith(".txt")): 
             name_list.append(os.path.join(root,file))
 # куда пишем
