@@ -2,12 +2,11 @@
 from datetime import datetime
 
 # variables and constants
-date_time = datetime.now()
-weekday = date_time.weekday() + 1  #I prefer Monday to be the 1st day of the week
+weekday = datetime.now().weekday() + 1  #I prefer Monday to be the 1st day of the week
 TAX_RATE = .06
 
 # test days
-weekday = 2
+weekday = 5
 
 # user input
 subtotal = float(input("Please enter the subtotal: "))
