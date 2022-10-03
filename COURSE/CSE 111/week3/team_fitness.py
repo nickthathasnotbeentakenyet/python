@@ -20,7 +20,7 @@ def main():
     print(f"BMR (kcal/day): {bmr:.0f}")
 
 def kg_from_lb(pounds):
-    return pounds * 0.45359237
+    return  pounds * 0.45359237
 
 def cm_from_in(inches):
     return inches * 2.54
