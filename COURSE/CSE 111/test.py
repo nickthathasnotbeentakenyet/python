@@ -2,9 +2,9 @@
 # HACK:
 # FIXME:
 # NOTE:
-# BUG:
 # REVIEW:
 # COMMENT:
 # WARNING:
-# PERF:
+# BUG:
 # DEBUG:
+# PERF:

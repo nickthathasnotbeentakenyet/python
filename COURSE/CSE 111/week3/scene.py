@@ -13,7 +13,7 @@ def main():
     canvas = start_drawing("Scene", scene_width, scene_height)
 
 # COMMENT: FUNCTIONS' CALLS START HERE 
-    # draw_grid(canvas, scene_width, scene_height, 50)
+
     draw_sky(canvas, scene_width, scene_height)
     draw_ground(canvas, scene_width, scene_height)
     draw_cloud(canvas, 0, 480, 80)
@@ -49,6 +49,7 @@ def main():
     draw_butterfly(canvas, 350, 270, 10, "maroon4")
     draw_butterfly(canvas, 660, 20, 8, "greenYellow")
     draw_butterfly(canvas, 710, 30, 12, "mediumPurple1")
+    draw_grid(canvas, scene_width, scene_height, 50)
     
 # COMMENT: CALLS TO MY FUNCTIONS END HERE
 

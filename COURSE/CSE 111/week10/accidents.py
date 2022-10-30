@@ -1,7 +1,6 @@
 # Import the csv module so that it can be used
 # to read from the accidents.csv file.
 import csv
-from decimal import DivisionByZero
 
 
 # Column numbers from the accidents.csv file.
@@ -49,9 +48,13 @@ def main():
             next(reader)
 
             # Process each row in the CSV file.
+            row_counter = 1
             for row in reader:
                 year = row[YEAR_COLUMN]
-
+                row_counter += 1
+                zero = 0 
+                if int(row[FATAL_CRASHES_COLUMN]) == 0:
+                    zero = row_counter
                 # Call the estimate_reduction function.
                 injur, fatal = estimate_reduction(
                         row, PHONE_COLUMN, perc_reduc)
@@ -73,6 +76,11 @@ def main():
     except ValueError as val_err:
         print(f"Error: {val_err}")
         print(f"Not a number. \nPlease don't include characters other than numbers")
+
+    except ZeroDivisionError as zero_div_err:
+        print(type(zero_div_err).__name__, "Division by 0 is not allowed", sep=": ")
+        print(f"Check line {zero} in {filename} file")
+
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):

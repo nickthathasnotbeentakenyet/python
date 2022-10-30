@@ -16,22 +16,22 @@
 #         if(file.endswith(".py")): 
 #             print(os.path.join(root,file))
 
-# запись в файл
-import os 
-# откуда читаем
-path = "C:/Users/warning/Documents/" 
-name_list = []
-for root, dirs, files in os.walk(path): 
-    for file in files: 
-        # интересуют только питоновские файлы
-        if(file.endswith(".py")): 
-            name_list.append(os.path.join(root,file))
-# куда пишем
-store = "C:/Users/warning/Documents/'список файлов.txt'"
-with open(store, 'w', encoding='utf-8') as f:
-    for i in name_list:
-        f.write(i + "\n")
-f.close()
+# # запись в файл
+# import os 
+# # откуда читаем
+# path = "C:/Users/warning/Documents/" 
+# name_list = []
+# for root, dirs, files in os.walk(path): 
+#     for file in files: 
+#         # интересуют только питоновские файлы
+#         if(file.endswith(".py")): 
+#             name_list.append(os.path.join(root,file))
+# # куда пишем
+# store = "C:/Users/warning/Documents/'список файлов.txt'"
+# with open(store, 'w', encoding='utf-8') as f:
+#     for i in name_list:
+#         f.write(i + "\n")
+# f.close()
 
 
 # ------------------------------ UNIX + WINDOWS

@@ -3,12 +3,12 @@ import random
 def main():
     # print several sentences by calling appropriate functions
     decorator("start")
-    print(get_determiner(1), get_adjective(), get_noun(1), get_verb(1, "past"), get_prepositional_phrase(1))
-    print(get_determiner(1), get_adjective(), get_noun(1), get_verb(1, "present"), get_prepositional_phrase(1))
-    print(get_determiner(1), get_adjective(), get_noun(1), get_verb(1, "future"), get_prepositional_phrase(1))
-    print(get_determiner(2), get_adjective(), get_noun(2), get_verb(2, "past"), get_prepositional_phrase(2))
-    print(get_determiner(2), get_adjective(), get_noun(2), get_verb(2, "present"), get_prepositional_phrase(2))
-    print(get_determiner(2), get_adjective(), get_noun(2), get_verb(2, "future"), get_prepositional_phrase(2))
+    print(get_sentence(1,'past'))
+    print(get_sentence(1,'present'))
+    print(get_sentence(1,'future'))
+    print(get_sentence(2,'past'))
+    print(get_sentence(2,'present'))
+    print(get_sentence(2,'future'))
     decorator(" end ")
 
 def decorator(message):
@@ -160,6 +160,12 @@ def get_adjective():
     "big", "crazy", "happy", "hot", "creepy", "elegant", "hungry", "thankful"]
     
     return random.choice(adjectives) 
+
+def get_sentence(quantity, tense):
+    return get_determiner(quantity), get_adjective(), get_noun(quantity),\
+         get_verb(quantity, tense), get_prepositional_phrase(quantity)
+
+
 
 if __name__ == "__main__":
     main()

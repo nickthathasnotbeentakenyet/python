@@ -12,7 +12,7 @@ class colors:
     UNDERLINEOFF = '\033[24m'
     ENDC = '\033[0m'
 
-PATH = 'products.csv'
+PRODUCT = 'products.csv'
 REQUEST = 'request.csv'
 PRODUCT_CODE = 0
 PRODUCT_NAME = 1
@@ -23,8 +23,8 @@ TAX_RATE = .06
 
 def main():
     try:
-        products_dict = read_dict(PATH, PRODUCT_CODE)
         decor()
+        products_dict = read_dict(PRODUCT, PRODUCT_CODE)
         print(f"{colors.CYAN}Inkom Emporium\n{colors.ENDC}")
 
         with open(REQUEST,'rt') as file:
@@ -55,23 +55,24 @@ Total: {total:.2f}")
             print(f"{colors.LINK}{colors.UNDERLINEON}https://forms.gle/Wj7sfoc4L29GQn1b7" + colors.UNDERLINEOFF + colors.ENDC)
         else:
             print("OK...Goodbye...")
-        decor()
 
-    # BUG: найти лучшее место, чтобы вывод сверху не печатался
+
     except KeyError as keyerr:
         print()
         print(f"{colors.RED}Error: unknown product ID in the request.csv file")
         print(keyerr,f"{colors.ENDC}")
-        decor()
+
 
     except FileNotFoundError as file_not_found:
         print()
         print(f"{colors.RED}Error: missing file")
         print(file_not_found,f"{colors.ENDC}")
-        decor()
+
 
     except PermissionError as perm_err:
         print(f"{colors.RED}Error: {perm_err}{colors.ENDC}")
+
+    finally:
         decor()
 
 
