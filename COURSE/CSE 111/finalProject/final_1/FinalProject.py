@@ -4,7 +4,6 @@ from pathlib import Path
 from colorama import Fore
 from tqdm import tqdm
 
-HOMEDIR = Path('~').expanduser()
 CURRENT_DIR = os.getcwd()
 
 def main():

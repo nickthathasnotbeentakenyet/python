@@ -12,6 +12,9 @@ The **DESTINATION** folder is where files are to be moved to.
 
 ## WorkFlow
 
+**IMPORTANT** - Make sure your *current working directory* is where this project is, 
+as the program is using *os.getcwd()* as part of its workflow.
+
 When you start the program it:
 1. Reads files in the **SOURCE** directory
 2. Counts the files and outputs the count
