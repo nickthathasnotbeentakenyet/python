@@ -1,6 +1,16 @@
 import pytest
+import datetime
 from weekdays import *
 
+
+def test_validate_date():
+    regex = datetime.datetime.strptime
+    assert regex('2020-08-03', '%Y-%m-%d')
+    try:
+        assert regex('2020-08', '%Y-%m-%d')
+        assert regex('2020/08/03', '%Y-%m-%d')
+        assert regex('2020-13-32', '%Y-%m-%d')
+    except ValueError: pass
 
 def test_get_date_splitted():
     assert get_date_splitted('2022-10-27') == ['2022','10','27']
