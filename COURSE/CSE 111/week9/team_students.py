@@ -2,6 +2,7 @@ import csv
 
 I_NUMBER = 0
 NAME = 1
+I_NUMBER_LEN = 9
 PATH = "COURSE/CSE 111/week9/students.csv"
 dictionary = {}
 
@@ -54,9 +55,9 @@ def check_valid(student_i_number):
     for _ in student_i_number:
         if str(_).isdigit(): pass
         else: print("Invalid I-Number"),exit(0)
-    if len(student_i_number) < 9: 
+    if len(student_i_number) < I_NUMBER_LEN: 
         print("Invalid I-Number: too few digits"),exit(0)
-    if len(student_i_number) > 9:
+    if len(student_i_number) > I_NUMBER_LEN:
         print("Invalid I-Number: too many digits"),exit(0)
             
 if __name__ == '__main__':
