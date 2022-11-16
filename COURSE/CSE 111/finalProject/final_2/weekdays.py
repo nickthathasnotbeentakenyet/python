@@ -1,6 +1,8 @@
 import datetime
 import matplotlib.pyplot as plt
 from colorama import Fore
+from pyfiglet import Figlet
+
 
 def main():
 
@@ -12,8 +14,9 @@ def main():
     '''
     
     # welcome message
-    decorator()
-    print('-'*21,' WEEKDAY FINDER ','-'*21)
+    print(f'{Fore.CYAN}')
+    figlet = Figlet(font='Slant', width=150)
+    print(figlet.renderText('WEEKDAY  FINDER'))
     decorator()
     print(f"{Fore.MAGENTA}Have you ever wondered what Weekday it was on a specific date?\n\
 In some cultures, one who was born on Monday is called a 'Monday's child'\n\

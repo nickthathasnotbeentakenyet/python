@@ -45,11 +45,14 @@ def read_dict(filename, key_column_index):
 
 def clean_number(student_i_number):
     # dealing with dashes
+    # easiest way: clean_number = strudent_i_number.replace('-','')
+    # long:
     clean_number = ''
     for _ in range(len(student_i_number)):
         if student_i_number[_] == '-': clean_number += ''
         else: clean_number += student_i_number[_]
     return clean_number
+
 
 def check_valid(student_i_number):
     for _ in student_i_number:

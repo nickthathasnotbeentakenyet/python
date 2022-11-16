@@ -23,12 +23,15 @@ def main():
         with open(filename, "rt") as text_file:
 
             # Prompt the user for a percentage.
-            perc_reduc = float(input(
-                "Percent reduction of texting while driving [0, 100]: "))
-            if perc_reduc < 0 :
-                print("Error: 110.0 is too low. Please enter a different number."), exit(0)
-            if perc_reduc > 100:
-                print("Error: 110.0 is too high. Please enter a different number."), exit(0)
+            exiting = False
+            while not exiting:
+                perc_reduc = float(input(
+                    "Percent reduction of texting while driving [0, 100]: "))
+                if perc_reduc < 0 :
+                    print(f"Error: {perc_reduc} is too low. Please enter a different number.")
+                elif perc_reduc > 100:
+                    print(f"Error: {perc_reduc} is too high. Please enter a different number.")
+                else: exiting = True
 
             print()
             print(f"With a {perc_reduc}% reduction in using a cell",
@@ -49,6 +52,7 @@ def main():
 
             # Process each row in the CSV file.
             row_counter = 1
+
             for row in reader:
                 year = row[YEAR_COLUMN]
                 row_counter += 1
@@ -62,6 +66,7 @@ def main():
                 # Print the estimated reductions
                 # in injuries and fatalities.
                 print(year, injur, fatal, sep=", ")
+
     
     except FileNotFoundError as not_found_err:
         print()
@@ -81,7 +86,8 @@ def main():
         print(type(zero_div_err).__name__, "Division by 0 is not allowed", sep=": ")
         print(f"Check line {zero} in {filename} file")
 
-
+    except csv.Error as csvErr:
+        print('file %s, line %d: %s' % (filename, reader.line_num, csvErr))
 
 def estimate_reduction(row, behavior_key, perc_reduc):
     """Estimate and return the number of injuries and deaths that
