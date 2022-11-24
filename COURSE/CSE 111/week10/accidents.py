@@ -2,7 +2,6 @@
 # to read from the accidents.csv file.
 import csv
 
-
 # Column numbers from the accidents.csv file.
 YEAR_COLUMN = 0
 FATALITIES_COLUMN = 1
@@ -14,7 +13,6 @@ PHONE_COLUMN = 6
 SPEED_COLUMN = 7
 DUI_COLUMN = 8
 FATIGUE_COLUMN = 9
-
 
 def main():
     try:
@@ -79,15 +77,15 @@ def main():
         print(f"You don't have permission to read {filename}.")
 
     except ValueError as val_err:
-        print(f"Error: {val_err}")
+        print(f"Error: {type(val_err).__name__}")
         print(f"Not a number. \nPlease don't include characters other than numbers")
 
     except ZeroDivisionError as zero_div_err:
         print(type(zero_div_err).__name__, "Division by 0 is not allowed", sep=": ")
         print(f"Check line {zero} in {filename} file")
 
-    except csv.Error as csvErr:
-        print('file %s, line %d: %s' % (filename, reader.line_num, csvErr))
+    except csv.Error as csv_err:
+        print('file %s, line %d: %s' % (filename, reader.line_num, csv_err))
 
 def estimate_reduction(row, behavior_key, perc_reduc):
     """Estimate and return the number of injuries and deaths that

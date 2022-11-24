@@ -1,4 +1,3 @@
-from cProfile import label
 import matplotlib.pyplot as plt  
 
 доход = [18000, 25000, 20000, 45000, 19500]
