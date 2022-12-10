@@ -103,7 +103,7 @@ def validate_period():
     exiting = 0
     while exiting != 1:
         try:
-            period = int(input(f'{Fore.CYAN}Enter period of years{Fore.YELLOW} [100]{Fore.RESET} : '))
+            period = int(input(f'{Fore.CYAN}Enter period of years{Fore.YELLOW} [10]{Fore.RESET} : '))
             exiting = 1
         except ValueError:
             print(f'{Fore.RED}Error: incorrect input. Must be integer{Fore.RESET}')
