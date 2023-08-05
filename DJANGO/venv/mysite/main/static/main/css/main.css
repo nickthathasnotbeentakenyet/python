@@ -1,0 +1,46 @@
+body{
+    background-color: steelblue;
+}
+li{
+    color: white;
+    font-weight: bold;
+    list-style: none;
+}
+li:hover{
+    color: lightskyblue;
+    transform: scale(1.10);
+    transition: all 0.6s ease;
+}
+a{
+    text-decoration: none;
+}
+aside{
+    float: left;
+    background-color: #333;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    border-right: 5px solid salmon;
+}
+aside img{
+    width: 150px;
+    float: left;
+}
+aside .logo{
+    font-size: 40px;
+    color: crimson;
+    margin-left: 10px;
+    font-weight: bold;
+}
+main .features{
+    float: left;
+    color: white;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+}
+form{
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}

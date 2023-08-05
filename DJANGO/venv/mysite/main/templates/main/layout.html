@@ -1,0 +1,35 @@
+{% load static %} <!-- для подключения всех статических файлов(css, js, images...) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'main/img/download.svg' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}"> <!-- подключаем из static (см.выше) -->
+    <title>{% block title %}{% endblock%}</title>
+</head>
+<body>
+    <aside>
+        <img src="{% static 'main/img/download.svg' %}" alt="logo">
+        <span class="logo">Мой Сайт</span>
+        <ul>
+            <a href="{% url 'home' %}"><li>Главная</li></a>
+            <a href="{% url 'about' %}"><li>О нас</li></a>
+            <a href="{% url 'news_home' %}"><li>Новости</li></a>
+            <a href="/admin"><li>Админка</li></a>
+            <a href="{% url 'create' %}"><li><button class="btn btn-outline-danger btn-sm">Добавить</button></li></a>
+        </ul>
+    </aside>
+    <main>
+        {% block content %} <!-- начало блока разметки. Вместо block можно section  -->
+        {% endblock%} <!-- конец блока разметки -->
+        
+        <!-- подключаем любой файл -->
+        <!-- {% include 'main/test.html' %}  -->
+    </main>
+</body>
+</html>
